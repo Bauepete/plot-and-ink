@@ -11,7 +11,9 @@ import XCTest
 final class PageTests: XCTestCase {
     func testThatItShouldAcceptStructureAndContent_GivenConstructed() {
         struct TestStructure: Structure {
-            
+            func render() -> String {
+                return ""
+            }
         }
         let structure = TestStructure()
         let md = """
@@ -23,9 +25,15 @@ and a text
     }
     
     func testThatItShouldCallStructureRender_GivenRenderIsCalled() {
-        let page = Page()
+        struct TestStructure: Structure {
+            func render() -> String {
+                return "test structure's render was called"
+            }
+        }
+        
+        let page = Page(structure: TestStructure())
         let result = page.render()
-        XCTAssertEqual(result, "Render called")
+        XCTAssertEqual(result, "test structure's render was called")
     }
     
     func testThatItShouldRenderHelloWorld_GivenConstructedByDefault() {

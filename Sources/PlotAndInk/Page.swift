@@ -12,14 +12,18 @@ struct Page {
     var content: String = ""
     
     func render() -> String {
-        return "Render called"
+        return structure.render()
     }
 }
 
 protocol Structure {
-    
+    func render() -> String
 }
 
 struct DefaultStructure: Structure {
+    func render() -> String {
+        return ""
+    }
+    
     
 }

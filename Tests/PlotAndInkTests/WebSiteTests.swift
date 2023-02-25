@@ -3,7 +3,7 @@ import XCTest
 
 final class WebSiteTests: XCTestCase {
     func testThatItShouldGetPreferences_GivenConstructed() throws {
-        let preferences = Preferences(path: ".")
+        let preferences = Preferences(projectRoot: ".")
         let site = WebSite(with: preferences)
         XCTAssertNotNil(site.preferences)
     }

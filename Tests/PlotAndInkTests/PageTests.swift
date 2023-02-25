@@ -9,12 +9,13 @@ import XCTest
 @testable import PlotAndInk
 
 final class PageTests: XCTestCase {
-    func testThatItShouldAcceptStructureAndContent_GivenConstructed() {
-        struct TestStructure: Structure {
-            func render() -> String {
-                return ""
-            }
+    private struct TestStructure: Structure {
+        func render() -> String {
+            return "test structure's render was called"
         }
+    }
+    
+    func testThatItShouldAcceptStructureAndContent_GivenConstructed() {
         let structure = TestStructure()
         let md = """
 # Headline
@@ -25,12 +26,6 @@ and a text
     }
     
     func testThatItShouldCallStructureRender_GivenRenderIsCalled() {
-        struct TestStructure: Structure {
-            func render() -> String {
-                return "test structure's render was called"
-            }
-        }
-        
         let page = Page(structure: TestStructure())
         let result = page.render()
         XCTAssertEqual(result, "test structure's render was called")

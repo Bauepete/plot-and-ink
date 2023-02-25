@@ -8,13 +8,8 @@
 import Plot
 
 struct Page {
-    var structure: Structure
-    var content: String
-    
-    init(structure: Structure = DefaultStructure(), content: String = "") {
-        self.structure = structure
-        self.content = content
-    }
+    var structure: Structure = DefaultStructure()
+    var content: String = ""
     
     func render() -> String {
         return "Render called"

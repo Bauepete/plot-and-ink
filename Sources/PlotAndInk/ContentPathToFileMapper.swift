@@ -7,12 +7,13 @@
 
 struct ContentPathToFileMapper {
     func map(_ contentPath: String) -> String {
-        var contentRoot = "Pfui"
-        do {
-            contentRoot = try Preferences.instance.contentRoot
-        } catch {
-            
-        }
-        return "\(contentRoot)/\(contentPath).md"
+//        var contentRoot = "Pfui"
+//        do {
+//            contentRoot = try Preferences.instance.contentRoot
+//        } catch {
+//
+//        }
+//        return "\(contentRoot)/\(contentPath).md"
+        return ""
     }
 }
